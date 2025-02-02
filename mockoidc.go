@@ -33,6 +33,8 @@ type MockOIDC struct {
 	SessionStore *SessionStore
 	UserQueue    *UserQueue
 	ErrorQueue   *ErrorQueue
+	// When the default of 127.0.0.1:port isn't good enough, this can be set
+	IssuerOverride string
 
 	tlsConfig   *tls.Config
 	middleware  []func(http.Handler) http.Handler
@@ -209,6 +211,9 @@ func (m *MockOIDC) Addr() string {
 func (m *MockOIDC) Issuer() string {
 	if m.Server == nil {
 		return ""
+	}
+	if m.IssuerOverride != "" {
+		return m.IssuerOverride
 	}
 	return m.Addr() + IssuerBase
 }
