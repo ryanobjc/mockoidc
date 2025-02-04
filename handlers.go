@@ -14,11 +14,11 @@ import (
 
 const (
 	IssuerBase            = "/oidc"
-	AuthorizationEndpoint = "/oidc/authorize"
-	TokenEndpoint         = "/oidc/token"
-	UserinfoEndpoint      = "/oidc/userinfo"
-	JWKSEndpoint          = "/oidc/.well-known/jwks.json"
-	DiscoveryEndpoint     = "/oidc/.well-known/openid-configuration"
+	AuthorizationEndpoint = "/authorize"
+	TokenEndpoint         = "/token"
+	UserinfoEndpoint      = "/userinfo"
+	JWKSEndpoint          = "/.well-known/jwks.json"
+	DiscoveryEndpoint     = "/.well-known/openid-configuration"
 
 	InvalidRequest       = "invalid_request"
 	InvalidClient        = "invalid_client"
